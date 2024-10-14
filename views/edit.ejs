@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Data</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: #f0f4f8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 20px;
+        animation: fadeInDown 1s ease-in-out;
+      }
+
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      form {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        transition: box-shadow 0.3s ease-in-out;
+        animation: fadeInUp 1s ease-in-out;
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      form:hover {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: #555;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background-color: #f9f9f9;
+        font-size: 16px;
+        color: #333;
+        transition: border-color 0.3s ease;
+      }
+
+      input[type="text"]:focus,
+      input[type="number"]:focus {
+        border-color: #6c63ff;
+        outline: none;
+        background-color: #ffffff;
+      }
+
+      button {
+        background-color: #6c63ff;
+        color: white;
+        padding: 12px 0;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #5848c2;
+      }
+
+      button:active {
+        background-color: #4738a8;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Edit Data</h2>
+    <form action="/update/<%= Mahasiswa.id %>" method="post">
+      <label for="Nama">Nama:</label>
+      <input
+        type="text"
+        id="Nama"
+        name="Nama"
+        required
+        value="<%= Mahasiswa.nama %>"
+      /><br />
+      <label for="Prodi">Prodi:</label>
+      <input
+        type="text"
+        id="Prodi"
+        name="Prodi"
+        value="<%= Mahasiswa.prodi %>"
+      /><br />
+      <label for="Angkatan">Angkatan:</label>
+      <input
+        type="number"
+        id="Angkatan"
+        name="Angkatan"
+        value="<%= Mahasiswa.angkatan %>"
+      /><br />
+      <label for="Email">Email:</label>
+      <input
+        type="text"
+        id="Email"
+        name="Email"
+        value="<%= Mahasiswa.email %>"
+      /><br />
+      <button type="submit">Simpan</button>
+    </form>
+  </body>
+</html>
